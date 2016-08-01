@@ -17,3 +17,17 @@ By default, the notification name is ``com.4d.test``.
 
 You can change it in the ``Info.plist`` too; the key name is ``URTargetNotificationIdentifier``.
 
+4D can receive this notification by calling the plugin method to register the same notification:
+
+```
+Notification ADD OBSERVER ("com.4d.test")
+```
+
+You can register as many notifications as you like, but you can only install one callback method.
+
+```
+Notification SET METHOD ("mycallback")
+```
+
+The callback method will receive three arguments; the notification name, and serialized array of userInfo keys and values. 
+
