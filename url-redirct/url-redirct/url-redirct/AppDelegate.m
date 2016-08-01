@@ -33,6 +33,7 @@
 																				 object,
 																				 userInfo,
 																				 true);
+		CFRelease(userInfo);
 	}
 }
 
