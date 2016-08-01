@@ -29,7 +29,7 @@ You can register as many notifications as you like, but you can only install one
 Notification SET METHOD ("mycallback")
 ```
 
-the callback method will receive three arguments; the notification name, and serialized array of userInfo keys and values. 
+the callback method will receive three arguments; the notification name and a pair of serialized arraya of keys and values. 
 
 <img width="500" alt="2016-08-01 18 53 21" src="https://cloud.githubusercontent.com/assets/1725068/17290409/4b4ce574-5819-11e6-8e6d-937b4ebb0868.png">
 
