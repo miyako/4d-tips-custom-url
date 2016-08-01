@@ -31,3 +31,4 @@ Notification SET METHOD ("mycallback")
 
 The callback method will receive three arguments; the notification name, and serialized array of userInfo keys and values. 
 
+<img width="800" alt="2016-08-01 18 53 21" src="https://cloud.githubusercontent.com/assets/1725068/17290409/4b4ce574-5819-11e6-8e6d-937b4ebb0868.png">
