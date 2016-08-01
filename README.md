@@ -9,7 +9,7 @@ By default, the following schemes are captured: ``d4``, ``fourd``, ``dddd``.
 
 You can customise them by editing ``Info.plist`` of the "url-redirect" app.
 
-<img width="209" alt="2016-08-01 18 32 21" src="https://cloud.githubusercontent.com/assets/1725068/17289833/65394a98-5816-11e6-87d2-537bdb731947.png">
+<img alt="2016-08-01 18 32 21" src="https://cloud.githubusercontent.com/assets/1725068/17289833/65394a98-5816-11e6-87d2-537bdb731947.png">
 
 The "url-redirect" app is designed to simply post a distributed notification.
 
@@ -56,7 +56,7 @@ Notification POST ("com.4d.test";$keys;$values)
 
 Run the application. An HTML page is opened.
 
-![2016-08-01 19 08 08](https://cloud.githubusercontent.com/assets/1725068/17290834/70b429f6-581b-11e6-811c-8d8e676f2500.png)
+<img width="504" alt="2016-08-01 19 08" src="https://cloud.githubusercontent.com/assets/1725068/17290834/70b429f6-581b-11e6-811c-8d8e676f2500.png">
 
 Click on a link. An alert is displayed. 
 
