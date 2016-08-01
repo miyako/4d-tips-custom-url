@@ -51,3 +51,11 @@ $values{2}:="bar2"
 
 Notification POST ("com.4d.test";$keys;$values)
 ```
+
+##Demo
+
+Run the application. An HTML page is opened.
+
+Click on a link. An alert is displayed. 
+
+Note that the web server is not running.
