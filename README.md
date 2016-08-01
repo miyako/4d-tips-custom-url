@@ -56,6 +56,8 @@ Notification POST ("com.4d.test";$keys;$values)
 
 Run the application. An HTML page is opened.
 
+![2016-08-01 19 08 08](https://cloud.githubusercontent.com/assets/1725068/17290834/70b429f6-581b-11e6-811c-8d8e676f2500.png)
+
 Click on a link. An alert is displayed. 
 
 Note that the web server is not running.
