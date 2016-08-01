@@ -62,4 +62,4 @@ Click on a link. An alert is displayed.
 
 Note that the web server is not running.
 
-<img alt="2016-08-01 19 09 01" src="https://cloud.githubusercontent.com/assets/1725068/17290856/834392a0-581b-11e6-94ea-c1594e15051f.png">
+<img width="504" alt="2016-08-01 19 09 01" src="https://cloud.githubusercontent.com/assets/1725068/17290856/834392a0-581b-11e6-94ea-c1594e15051f.png">
