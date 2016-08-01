@@ -1,0 +1,1 @@
+﻿{"name":"Notification","id":20000,"commands":[{"theme":"Notification","syntax":"Notification SET METHOD(&T)"},{"theme":"Notification","syntax":"Notification Get method:T"},{"theme":"Notification","syntax":"Notification ADD OBSERVER(&T)"},{"theme":"Notification","syntax":"Notification REMOVE OBSERVER(&T)"},{"theme":"Notification","syntax":"Notification POST(&T;&Y;&Y)"}]}
