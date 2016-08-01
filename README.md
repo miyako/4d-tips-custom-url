@@ -29,6 +29,25 @@ You can register as many notifications as you like, but you can only install one
 Notification SET METHOD ("mycallback")
 ```
 
-The callback method will receive three arguments; the notification name, and serialized array of userInfo keys and values. 
+the callback method will receive three arguments; the notification name, and serialized array of userInfo keys and values. 
 
 <img width="800" alt="2016-08-01 18 53 21" src="https://cloud.githubusercontent.com/assets/1725068/17290409/4b4ce574-5819-11e6-8e6d-937b4ebb0868.png">
+
+In case of a custom URL redirected by the helper app, only 1 key-value pair is posted, where the key is "url" and the value is the URL.
+
+###Tip
+
+You can also post a notification directly from 4D, without using a custom URL. This is a convenient way to let 4D talk to another 4D locally.
+
+```
+ARRAY TEXT($keys;3)
+ARRAY TEXT($values;3)
+
+$keys{1}:="foo"
+$values{1}:="bar"
+
+$keys{2}:="foo2"
+$values{2}:="bar2"
+
+Notification POST ("com.4d.test";$keys;$values)
+```
