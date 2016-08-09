@@ -1,5 +1,5 @@
 # 4d-tips-custom-url
-Example of handling custom URL scheme in 4D 
+Example of handling custom URL scheme in 4D
 
 ##How it works
 
@@ -29,11 +29,12 @@ You can register as many notifications as you like, but you can only install one
 Notification SET METHOD ("mycallback")
 ```
 
-the callback method will receive three arguments; the notification name and a pair of serialized arrays of keys and values. 
+In case of a custom URL redirected by the helper app, $1 = the notification name (e.g. "com.4d.test"), $2 = "url", $3 = the full URL
+
+In the case of using "Notification POST" (see Tip below), the callback method will receive three arguments $1 = the notification name (e.g. "com.4d.test"), $2 = the keys separated by "\n", $3 = the values separated by ""\n"
 
 <img width="500" alt="2016-08-01 18 53 21" src="https://cloud.githubusercontent.com/assets/1725068/17290409/4b4ce574-5819-11e6-8e6d-937b4ebb0868.png">
 
-In case of a custom URL redirected by the helper app, only 1 key-value pair is posted, where the key is "url" and the value is the URL.
 
 ###Tip
 
@@ -52,13 +53,31 @@ $values{2}:="bar2"
 Notification POST ("com.4d.test";$keys;$values)
 ```
 
+###4D Server Client Suggestions
+It seems to work best to store the url-redirct.app in the server's Resources folder. That automatically get's populated into clients ~/Library/Cache/4D folder. The url-redirct.app is in the package of the "Notifications.4dbase". Be sure to remove macOS Gatekeeper extended attributes or users will get warnings!
+```
+xattr -d com.apple.quarantine /path/to/url-redirct.app
+```
+Copy the "Notification.bundle" from Plugins folder of the "Notifications.4dbase" package to the Server Plugins folder.
+
+In the On Startup method (which only runs on clients) open the url-redirct.app, add observer, and set method of the callback:
+```
+SET ENVIRONMENT VARIABLE("_4D_OPTION_CURRENT_DIRECTORY";Get 4D folder(Current resources folder))
+SET ENVIRONMENT VARIABLE("_4D_OPTION_BLOCKING_EXTERNAL_PROCESS";"FALSE")
+LAUNCH EXTERNAL PROCESS("open url-redirct.app")
+Notification ADD OBSERVER ("com.4d.test")
+Notification SET METHOD ("mycallback")
+```
+
+The method "mycallback" will now receive the full url in $3 when a URL is clicked on: e.g. "d4://customer/1/"
+
 ##Demo
 
 Run the application. An HTML page is opened.
 
 <img width="500" alt="2016-08-01 19 08" src="https://cloud.githubusercontent.com/assets/1725068/17290834/70b429f6-581b-11e6-811c-8d8e676f2500.png">
 
-Click on a link. An alert is displayed. 
+Click on a link. An alert is displayed.
 
 Note that the web server is not running.
 
