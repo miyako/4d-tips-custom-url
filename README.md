@@ -62,9 +62,14 @@ Copy the "Notification.bundle" from Plugins folder of the "Notifications.4dbase"
 
 In the On Startup method (which only runs on clients) open the url-redirct.app, add observer, and set method of the callback:
 ```
-SET ENVIRONMENT VARIABLE("_4D_OPTION_CURRENT_DIRECTORY";Get 4D folder(Current resources folder))
-SET ENVIRONMENT VARIABLE("_4D_OPTION_BLOCKING_EXTERNAL_PROCESS";"FALSE")
-LAUNCH EXTERNAL PROCESS("open url-redirct.app")
+SET ENVIRONMENT VARIABLE("_4D_OPTION_CURRENT_DIRECTORY";Get 4D folder(Current resources folder)) 
+// Need to set the execute bit on the core executable inside the app package 
+SET ENVIRONMENT VARIABLE("_4D_OPTION_BLOCKING_EXTERNAL_PROCESS";"TRUE") 
+LAUNCH EXTERNAL PROCESS("chmod 555 url-redirct.app/Contents/MacOS/url-redirct") 
+// Now launch the helper app 
+SET ENVIRONMENT VARIABLE("_4D_OPTION_BLOCKING_EXTERNAL_PROCESS";"FALSE") 
+SET ENVIRONMENT VARIABLE("_4D_OPTION_CURRENT_DIRECTORY";Get 4D folder(Current resources folder)) 
+LAUNCH EXTERNAL PROCESS("open url-redirct.app") 
 Notification ADD OBSERVER ("com.4d.test")
 Notification SET METHOD ("mycallback")
 ```
