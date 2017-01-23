@@ -95,11 +95,11 @@ void listenerLoopFinish()
 		Observer::shouldDie = true;
 		
 		//tell listener to die
-		while(Observer::monitorProcessId)
-		{
-			PA_YieldAbsolute();
+//		while(Observer::monitorProcessId)
+//		{
+//			PA_YieldAbsolute();
 			PA_UnfreezeProcess(Observer::monitorProcessId);
-		}
+//		}
 		
 	}
 }
