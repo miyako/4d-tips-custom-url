@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D10B86941EC16423003057A7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10B86931EC16423003057A7 /* Cocoa.framework */; };
 		D150328F1D4EE7B500B86EF4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D150328E1D4EE7B500B86EF4 /* AppDelegate.m */; };
 		D15032921D4EE7B500B86EF4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D15032911D4EE7B500B86EF4 /* main.m */; };
 		D15032941D4EE7B500B86EF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D15032931D4EE7B500B86EF4 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D10B86931EC16423003057A7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		D150328A1D4EE7B500B86EF4 /* url-redirct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "url-redirct.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D150328D1D4EE7B500B86EF4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D150328E1D4EE7B500B86EF4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -28,17 +30,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D10B86941EC16423003057A7 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D10B86921EC16422003057A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D10B86931EC16423003057A7 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D15032811D4EE7B500B86EF4 = {
 			isa = PBXGroup;
 			children = (
 				D150328C1D4EE7B500B86EF4 /* url-redirct */,
 				D150328B1D4EE7B500B86EF4 /* Products */,
+				D10B86921EC16422003057A7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,10 +176,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_LINK_OBJC_RUNTIME = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -207,10 +220,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_LINK_OBJC_RUNTIME = NO;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
@@ -244,14 +258,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_LINK_OBJC_RUNTIME = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer: keisuke miyako (4W9UT59D3B)";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "url-redirct/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-U",
+					"-Xlinker",
+					_objc_readClassPair,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.4D.miyako.url-redirct";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.10;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -260,14 +281,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_LINK_OBJC_RUNTIME = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer: keisuke miyako (4W9UT59D3B)";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "url-redirct/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-U",
+					"-Xlinker",
+					_objc_readClassPair,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.4D.miyako.url-redirct";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.10;
+				SDKROOT = macosx10.8;
 			};
 			name = Release;
 		};
