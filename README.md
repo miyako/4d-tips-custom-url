@@ -1,7 +1,7 @@
 # 4d-tips-custom-url
 Example of handling custom URL scheme in 4D
 
-##How it works
+## How it works
 
 A small cocoa application is used to register and handle a set of custom URLs.
 
@@ -36,7 +36,7 @@ In the case of using "Notification POST" (see Tip below), the callback method wi
 <img width="500" alt="2016-08-01 18 53 21" src="https://cloud.githubusercontent.com/assets/1725068/17290409/4b4ce574-5819-11e6-8e6d-937b4ebb0868.png">
 
 
-###Tip
+### Tip
 
 You can also post a notification directly from 4D, without using a custom URL. This is a convenient way to let 4D talk to another 4D locally.
 
@@ -53,7 +53,7 @@ $values{2}:="bar2"
 Notification POST ("com.4d.test";$keys;$values)
 ```
 
-###4D Server Client Suggestions
+### 4D Server Client Suggestions
 It seems to work best to store the url-redirct.app in the server's Resources folder. That automatically get's populated into clients ~/Library/Cache/4D folder. The url-redirct.app is in the package of the "Notifications.4dbase". Be sure to remove macOS Gatekeeper extended attributes or users will get warnings!
 ```
 xattr -d com.apple.quarantine /path/to/url-redirct.app
@@ -76,7 +76,7 @@ Notification SET METHOD ("mycallback")
 
 The method "mycallback" will now receive the full url in $3 when a URL is clicked on: e.g. "d4://customer/1/"
 
-##Demo
+## Demo
 
 Run the application. An HTML page is opened.
 
