@@ -152,7 +152,7 @@ void StartNotification()
 {
 	if(!Observer::shouldDie)
 	{
-		PA_RunInMainProcess((PA_RunInMainProcessProcPtr)listenerLoopStart, NULL);
+		listenerLoopStart();
 	}
 }
 
@@ -160,7 +160,7 @@ void StopNotification()
 {
 	if(!Observer::shouldDie)
 	{
-		PA_RunInMainProcess((PA_RunInMainProcessProcPtr)listenerLoopFinish, NULL);
+		listenerLoopFinish();
 	}
 }
 
