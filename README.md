@@ -1,6 +1,10 @@
 # 4d-tips-custom-url
 Example of handling custom URL scheme in 4D
 
+### Releases
+
+[1.1](https://github.com/miyako/4d-tips-custom-url/releases/tag/1.1)
+
 ## How it works
 
 A small cocoa application is used to register and handle a set of custom URLs.
