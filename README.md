@@ -1,3 +1,5 @@
+deprecated; see [4d-plugin-custom-url-scheme](https://github.com/miyako/4d-plugin-custom-url-scheme)
+
 # 4d-tips-custom-url
 Example of handling custom URL scheme in 4D
 
